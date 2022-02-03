@@ -1,4 +1,5 @@
 import http from 'http'
+import {IncomingMessage, ServerResponse} from 'http'
 import { getHeader, getJSON } from './utils'
 import { AuthenticationService } from './services/Authentication';
 // toda requisução que é feita para o servidor chama a função
@@ -9,7 +10,7 @@ const host = "localhost";
 const authenticationService = new AuthenticationService()
 
 
-const server = http.createServer((request : http.IncomingMessage ,response : http.ServerResponse) => {
+const server = http.createServer((request : IncomingMessage ,response : ServerResponse) => {
 
     // Configuração para o CORS 
     response.setHeader("Access-Control-Allow-Origin", "*");

@@ -1,5 +1,4 @@
 
-import http from 'http'
 import {IncomingMessage, ServerResponse} from 'http'
 
 export interface IAuthentication {
@@ -17,14 +16,14 @@ export class AuthenticationService implements IAuthentication {
     constructor() {
         this.users = new Map()
     }
-    register(request: http.IncomingMessage, response: http.ServerResponse): boolean {
+    register(request: IncomingMessage, response: ServerResponse): boolean {
         throw new Error('Method not implemented.');
     }
-    login(request: http.IncomingMessage, response: http.ServerResponse): boolean {
+    login(request: IncomingMessage, response: ServerResponse): boolean {
         throw new Error('Method not implemented.');
     }
 
-    authenticate(request: http.IncomingMessage, response: http.ServerResponse): boolean {
+    authenticate(request: IncomingMessage, response: ServerResponse): boolean {
         // throw new Error('Method not implemented.')
         const headers = new Object()
         Object.entries(request.headers).forEach((e) => (headers[e[0]] = e[1]));
