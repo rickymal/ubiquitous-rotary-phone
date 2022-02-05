@@ -11,22 +11,48 @@ const getHomepageUseCase = new GetHomepageUseCase()
 const viewService = new ViewService()
 const viewController = new ViewController(viewService)
 
-const apiService = new ApiService()
-const apiController = new ApiController(apiService)
 
-export const routerService = new RouterService()
-routerService.insert("/", (request, response) => viewController.main_page(request,response))
+import pkg from "sequelize"
 
-routerService.insert("/index",(request,response) => viewController.get_html_page(request,response,"index"))
+const {Sequelize,  Model, DataTypes} = pkg
 
-routerService.insert('/styles/global.css',(request,response) => viewController.get_css_style(request,response,"global"))
-routerService.insert('/styles/dashboard.css',(request,response) => viewController.get_css_style(request,response,"dashboard"))
+// 'mvcbook','123'
+const sequelize = new Sequelize('mvp_biblioteca_01','mvcbook','123456789',{
+    dialect : 'mssql',
+    host : '127.0.0.1',
+    port : 49679
+})
 
-routerService.insert('/scripts/fetcher.js',(request,response) => viewController.get_javascript_code(request,response,"fetcher"))
-routerService.insert('/scripts/main.js',(request,response) => viewController.get_javascript_code(request,response,"main"))
-routerService.insert('/favicon.ico',(request,response) => viewController.favicon(request,response))
 
-routerService.insert('/api/books',(request,response) => apiController.books(request,response))
+export class User extends Model {}
+
+var dt = DataTypes;
+User.init(
+  {
+    email: dt.STRING,
+    password: dt.STRING,
+  },
+  { sequelize, modelName: "user" }
+);
+
+sequelize.sync({ force: true })
+
+// const apiService = new ApiService(sequelize)
+// const apiController = new ApiController(apiService)
+
+// export const routerService = new RouterService()
+// routerService.insert("/", (request, response) => viewController.main_page(request,response))
+
+// routerService.insert("/index",(request,response) => viewController.get_html_page(request,response,"index"))
+
+// routerService.insert('/styles/global.css',(request,response) => viewController.get_css_style(request,response,"global"))
+// routerService.insert('/styles/dashboard.css',(request,response) => viewController.get_css_style(request,response,"dashboard"))
+
+// routerService.insert('/scripts/fetcher.js',(request,response) => viewController.get_javascript_code(request,response,"fetcher"))
+// routerService.insert('/scripts/main.js',(request,response) => viewController.get_javascript_code(request,response,"main"))
+// routerService.insert('/favicon.ico',(request,response) => viewController.favicon(request,response))
+
+// routerService.insert('/api/books',(request,response) => apiController.books(request,response))
 
 
 
