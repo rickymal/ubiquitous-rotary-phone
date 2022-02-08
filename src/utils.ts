@@ -1,6 +1,6 @@
 
 
-export function getJSON(request, data_source = "json") {
+export function getJSON(request, data_source = "json"): Promise<any> {
     return new Promise(function (resolve, reject) {
         var body_parsed = "";
         request.on("data", (chunk) => {

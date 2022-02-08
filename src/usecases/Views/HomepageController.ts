@@ -23,40 +23,41 @@ export class ViewController {
     }
 
     async get_html_page(request: IncomingMessage, response: ServerResponse, name : string) {
-        console.log("Compadre")
+        // console.log("Compadre")
         response.setHeader("Content-type","text/html")
         response.writeHead(200)
         
-        console.log("Compadre")
-        console.log("Name " + name)
+        // console.log("Compadre")
+        // console.log("Name " + name)
         let html_page = this.viewService.getHTML(name)
         response.end(html_page)
-        console.log("Compadre")
+        // console.log("Compadre")
     }
 
     
     async get_css_style(request: IncomingMessage, response: ServerResponse, name : string) {
-        console.log("Compadre")
-        response.setHeader("Content-type","text/html")
+        // console.log("Compadre")
+        response.setHeader("Content-type","text/css")
         response.writeHead(200)
         
-        console.log("Compadre")
-        console.log("Name " + name)
+        // console.log("Compadre")
+        // console.log("Name " + name)
         let html_page = this.viewService.getCSS(name)
+        console.log("pagina css")
         response.end(html_page)
-        console.log("Compadre")
+        // console.log("Compadre")
     }
 
     async get_javascript_code(request: IncomingMessage, response: ServerResponse, name : string) {
-        console.log("Compadre")
-        response.setHeader("Content-type","text/html")
+        // console.log("Compadre")
+        response.setHeader("Content-type","text/javascript")
         response.writeHead(200)
         
-        console.log("Compadre")
-        console.log("Name " + name)
+        // console.log("Compadre")
+        // console.log("Name " + name)
         let html_page = this.viewService.getJAVASCRIPT(name)
         response.end(html_page)
-        console.log("Compadre")
+        // console.log("Compadre")
     }
 
 

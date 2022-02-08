@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles/dashboard.css" />
+  <link rel="stylesheet" href="styles/global.css" />
+  <title>Dashboard</title>
+</head>
+<body>
+  <nav>
+    <a href="/index">Tela principal</a>
+    <ul>
+      <li><a href="/login">Logar</a></li>
+      <li><a href="/registration">Registrar</a></li>
+      <li><a href="/dashboard">Área do usuário</a></li>
+    </ul>
+  </nav>
+  <div class="container">
+    <h1>Meus títulos cadastrados</h1>
+    <div class="flex-row-content" id="flex-row-content">
+      <!-- Here is inserted the cards as a <div> tag -->
+    </div>
+  </div>
+  <div class="container" style="display: none;" id="container-updater">
+    <h1>editar títulos selecionado</h1>
+    <div class="flex-book">
+      <form action="/api/add_title" method="post" id="frm2">
+        <label id="label-updater">Título do livro ou revista</label>
+        <input id="title-updater" type="text" name="title" placeholder="Insira um título para o livro" />
+        <label>Descrição do título</label>
+        <textarea name="description" id="description-updater" placeholder="Insira uma descrição do produto"></textarea>
+        <input type="submit" class="submit-button" form="frm2" value="inserir livro" />
+        <input type="hidden" name="userId" form="frm2" value="1" id="hidden-input-user-id" />
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <h1>adicionar títulos</h1>
+    <div class="flex-book">
+      <form action="/api/add_title" method="post" id="frm1">
+        <label>Título do livro ou revista</label>
+        <input id="txt" type="text" name="title" placeholder="Insira um título para o livro" />
+        <label>Descrição do título</label>
+        <textarea name="description" id="txt" placeholder="Insira uma descrição do produto"></textarea>
+        <input type="submit" class="submit-button" form="frm1" value="inserir livro" />
+        <!-- <input
+            type="hidden"
+            name="userId"
+            form="frm1"
+            value="1"
+            id="hidden-input-user-id"
+          /> -->
+      </form>
+    </div>
+  </div>
+  <footer></footer>
+  <script type="text/javascript" src="scripts/fetcher.js"></script>
+  <script type="text/javascript" src="scripts/dashboard.js"></script>
+</body>
+</html>

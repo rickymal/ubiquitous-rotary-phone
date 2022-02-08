@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="styles/global.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav>
+        <a href="/index">Tela principal</a>
+        <ul>
+            <li><a href="/login">Logar</a></li>
+            <li><a href="/registration">Registrar</a></li>
+            <li><a href="/dashboard">Área do usuário</a></li>
+        </ul>
+    </nav>
+    <div class="registration-container">
+        <h1>login do usuário</h1>
+        <form action="/" method="post" onsubmit="(e) => e.preventDefault()">
+            <label>E-mail</label>
+            <input id="txt" type="text" name="email" value="henriquemauler@fakemail.com">
+            <label>Senha</label>
+            <input id="txt" type="text" name="password" value="123456789">
+            <input id="btn" type="submit" name="register" value="Logar usuário" class="btn-style"></input>
+        </form>
+    </div>
+    <script src="scripts/fetcher.js"></script>
+    <script src="scripts/login.js"></script>
+</body>
+
+</html>
